@@ -17,8 +17,20 @@ def generate_launch_description():
     # 2. Declare Launch Arguments
     use_rviz_arg = DeclareLaunchArgument(
         'use_rviz',
-        default_value='true',
+        default_value='false',
         description='Whether to start RViz'
+    )
+    use_lidar_arg = DeclareLaunchArgument(
+        'use_lidar',
+        default_value='true',
+        description='Whether to start the LiDAR'
+    )
+
+    lidar_node = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(get_package_share_directory('sllidar_ros2'), 'launch', 'sllidar_a1_launch.py')
+        ),
+        condition=IfCondition(LaunchConfiguration('use_rviz'))
     )
 
     # 3. Nodes and Includes
@@ -49,6 +61,8 @@ def generate_launch_description():
 
     return LaunchDescription([
         use_rviz_arg,
+        use_lidar_arg,
+        lidar_node,
         tf_node,
         delayed_rf2o,
         rviz_node
