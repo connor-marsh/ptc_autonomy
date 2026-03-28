@@ -30,7 +30,7 @@ def generate_launch_description():
         PythonLaunchDescriptionSource(
             os.path.join(get_package_share_directory('sllidar_ros2'), 'launch', 'sllidar_a1_launch.py')
         ),
-        condition=IfCondition(LaunchConfiguration('use_rviz'))
+        condition=IfCondition(LaunchConfiguration('use_lidar'))
     )
 
     # 3. Nodes and Includes
