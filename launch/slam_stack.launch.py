@@ -47,7 +47,7 @@ def generate_launch_description():
     )
 
     delayed_rf2o = TimerAction(
-        period=2.0,
+        period=4.0,
         actions=[rf2o_launch]
     )
 
@@ -56,6 +56,11 @@ def generate_launch_description():
             os.path.join(get_package_share_directory('slam_toolbox'), 'launch', 'online_async_launch.py')
         ),
         launch_arguments={'slam_params_file': my_slam_params_file}.items()
+    )
+
+    delayed_slam = TimerAction(
+        period=4.0,
+        actions=[slam_launch]
     )
 
     rviz_node = Node(
@@ -72,6 +77,6 @@ def generate_launch_description():
         lidar_node,
         tf_node,
         delayed_rf2o,
-        slam_launch,
+        delayed_slam,
         rviz_node
     ])

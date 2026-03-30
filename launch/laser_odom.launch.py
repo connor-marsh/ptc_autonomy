@@ -47,7 +47,7 @@ def generate_launch_description():
     )
 
     delayed_rf2o = TimerAction(
-        period=2.0,
+        period=4.0,
         actions=[rf2o_launch]
     )
 
