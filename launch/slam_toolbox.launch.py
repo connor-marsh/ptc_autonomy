@@ -22,7 +22,7 @@ def generate_launch_description():
     rviz_node = Node(
         package='rviz2',
         executable='rviz2',
-        arguments=['-d', LaunchConfiguration('use_rviz')],
+        arguments=['-d', LaunchConfiguration('rviz_config')],
         condition=IfCondition(LaunchConfiguration('use_rviz'))
     )
 

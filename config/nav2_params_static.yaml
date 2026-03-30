@@ -321,7 +321,7 @@ planner_server:
       lookup_table_size: 20.0
       tolerance: 0.25
       motion_model_for_search: "REEDS_SHEPP"
-      reverse_penalty: 1.0   # Default is ~2.0. Setting to 1.0 treats reverse as equal to forward.
+      reverse_penalty: 1.5   # Default is ~2.0. Setting to 1.0 treats reverse as equal to forward.
       change_penalty: 0.0    # Default is often 0.0, but ensure it isn't penalizing gear shifts.
 
 smoother_server:
