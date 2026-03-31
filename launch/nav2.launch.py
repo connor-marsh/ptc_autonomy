@@ -1,0 +1,1 @@
+#ros2 launch nav2_bringup bringup_launch.py map:=maps/benedumHallEdited.yaml params_file:=config/nav2_params_static.yaml slam:=False
